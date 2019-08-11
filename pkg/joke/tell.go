@@ -13,7 +13,7 @@ func Tell(count int) {
 
 	for _, id := range randomIDs {
 		j := GetJokeByID(id)
-		fmt.Println("++++++++++++++++++++++++++")
+		fmt.Printf("================== #%v ==================\n", j.ID)
 		fmt.Println(j.Setup)
 		fmt.Println(j.Punchline)
 		fmt.Println("")
