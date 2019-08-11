@@ -19,11 +19,16 @@ $ joke --help
 
 > for best results add `joke` to .zshrc, .bashrc, etc.  :trollface:
 
-## datastore
+## getting new jokes
 
-- SQLite uses the file `$HOME/.joke.db` that is created on your behalf after running `joke db setup`. The database is only updated the first time you run the `joke` command, for that day. This is to increase performance.
+- New jokes are fetched only once per day, this is to increase performance which helps if joke is added to .zshrc or similar. However, you can fetch jokes manually by running `joke fetch`
 
-> add the following to your `$HOME/.sqliterc` for easier to read queries
+## database
+
+- The datastore is an SQLite database located at `$HOME/.joke.db`. It's is created upon running `joke db setup`.
+
+### viewing data
+> TIP: add the following to your `$HOME/.sqliterc` for easier to read queries
 ```
 .mode column
 .headers on
