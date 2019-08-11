@@ -1,8 +1,8 @@
-## Joke
+## joke
 
 > guaranteed to make your day better, or your money back!
 
-### Use
+### use
 
 ```bash
 $ go get github.com/gabrie30/joke
@@ -16,8 +16,8 @@ $ joke --count=2
 $ joke --help
 ```
 
-> for best results add `joke` to .zshrc, .bashrc, etc :trollface:
+> for best results add `joke` to .zshrc, .bashrc, etc.  :trollface:
 
-## Datastore
+## datastore
 
 > sqlite uses the file $HOME/joke.db that is created on your behalf after running `joke db setup`
