@@ -5,7 +5,7 @@
 ## use
 
 ```bash
-# installs joke in your $HOME/go/bin, make sure this is in your $PATH
+# installs joke in your $HOME/go/bin, make sure this directory is in your $PATH
 $ go get github.com/gabrie30/joke
 # sets up the sqlite database in $HOME/joke.db
 $ joke db setup
