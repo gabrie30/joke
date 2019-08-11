@@ -16,7 +16,7 @@ $ joke --count=2
 $ joke --help
 ```
 
-> for best results add `joke` to .zshrc, .bashrc, etc :troll:
+> for best results add `joke` to .zshrc, .bashrc, etc :trollface:
 
 ## Datastore
 
