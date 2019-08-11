@@ -25,4 +25,4 @@ $ joke --help
 
 ## troubleshooting
 
-- Make sure `$HOME/go/bin` is in your $PATH `go env | grep GOBIN` if not, you need to set it
+- Make sure `$HOME/go/bin` is in your $PATH `go env | grep GOBIN` if not, you'll need to set it or put `$HOME/go/bin/joke` somewhere in your $PATH
