@@ -21,7 +21,7 @@ $ joke --help
 
 ## datastore
 
-> Sqlite uses the file $HOME/joke.db that is created on your behalf after running `joke db setup`. The database is only updated the first time you run the `joke` command, for that day. This is to increase performance.
+> SQLite uses the file $HOME/joke.db that is created on your behalf after running `joke db setup`. The database is only updated the first time you run the `joke` command, for that day. This is to increase performance.
 
 ## troubleshooting
 
