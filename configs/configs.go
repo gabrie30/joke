@@ -11,7 +11,7 @@ var (
 	// DBPath is the path to users database
 	DBPath string
 	// CreateDatesDB string to create dates database
-	CreateDatesDB = "CREATE TABLE IF NOT EXISTS dates (id INTEGER PRIMARY KEY, date_fetched TEXT UNIQUE, jokes_fetched INTEGER)"
+	CreateDatesDB = "CREATE TABLE IF NOT EXISTS dates (id INTEGER PRIMARY KEY, date_fetched TEXT, jokes_fetched INTEGER)"
 	// CreateJokesDB string to create jokes database
 	CreateJokesDB = "CREATE TABLE IF NOT EXISTS jokes (id INTEGER PRIMARY KEY, setup TEXT UNIQUE, punchline TEXT, score INTEGER)"
 )

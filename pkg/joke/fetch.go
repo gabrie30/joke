@@ -12,12 +12,21 @@ import (
 	"github.com/gabrie30/joke/pkg/date"
 )
 
+// ForceFetch allows users to fetch new jokes on demand
+func ForceFetch() {
+	fetch()
+}
+
 // FetchIfNeeded fetches jokes once per day
 func FetchIfNeeded() {
 	if needToFetch() == false {
 		return
 	}
 
+	fetch()
+}
+
+func fetch() {
 	n := saveFilteredJokes()
 	err := date.NewFetch(n)
 	if err != nil {
