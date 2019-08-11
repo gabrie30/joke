@@ -33,7 +33,6 @@ $ joke --help
 then
 ```
 $ sqlite $HOME/jokes.db
-
 sqlite> select * from jokes;
 ```
 
