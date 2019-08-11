@@ -43,7 +43,7 @@ func defaultDBPath() string {
 
 	path := HomeDir()
 
-	dbPath := path + "/jokes.db"
+	dbPath := path + "/.jokes.db"
 
 	return dbPath
 }
