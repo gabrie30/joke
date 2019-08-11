@@ -2,7 +2,7 @@
 
 > guaranteed to make your day better, or your money back!
 
-### use
+## use
 
 ```bash
 $ go get github.com/gabrie30/joke
