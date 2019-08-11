@@ -2,6 +2,7 @@ package joke
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -22,6 +23,8 @@ func FetchIfNeeded() {
 	if err != nil {
 		// TODO, if there is an error, delete last n jokes saved so there are no duplicate jokes
 	}
+
+	fmt.Printf("Fetched %v new jokes, your total is now %d!\n", n, LastJokeID())
 }
 
 func saveFilteredJokes() int {

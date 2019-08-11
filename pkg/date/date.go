@@ -56,8 +56,6 @@ func NewFetch(c int) error {
 		return err
 	}
 
-	fmt.Printf("saved %v new jokes!\n", c)
-
 	return nil
 }
 
@@ -73,7 +71,7 @@ func LastFetchDate() string {
 	err = db.QueryRow(sqlStmt).Scan(&dateFetched)
 	if err != nil {
 		if err != sql.ErrNoRows {
-			log.Fatal(err)
+			log.Fatalf("Error: %v, try running 'joke db setup' then try again", err)
 		}
 
 		return ""
