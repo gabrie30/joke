@@ -40,6 +40,24 @@ func New() *Data {
 	return &Data{}
 }
 
+// Count returns the number of jokes saved in the database
+func Count() (int, error) {
+	var count int
+	db, err := sql.Open("sqlite3", configs.DBPath)
+	if err != nil {
+		return 0, err
+	}
+	defer db.Close()
+
+	row := db.QueryRow("SELECT COUNT(DISTINCT setup) FROM jokes")
+	err = row.Scan(&count)
+	if err != nil {
+		return 0, err
+	}
+
+	return count, nil
+}
+
 // Save saves a joke to the db
 func (j *Data) Save() error {
 

@@ -23,8 +23,13 @@ func FetchIfNeeded() {
 	if err != nil {
 		// TODO, if there is an error, delete last n jokes saved so there are no duplicate jokes
 	}
+	c, err := Count()
+	if err != nil {
+		fmt.Printf("Something went wrong, could not count jokes got err: %v\n", err)
+		return
+	}
 
-	fmt.Printf("Fetched %v new jokes, your total is now %d!\n", n, LastJokeID())
+	fmt.Printf("Fetched %v new jokes, your total is now %d!\n", n, c)
 }
 
 func saveFilteredJokes() int {
