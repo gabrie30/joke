@@ -21,3 +21,7 @@ $ joke --help
 ## datastore
 
 > sqlite uses the file $HOME/joke.db that is created on your behalf after running `joke db setup`
+
+## troubleshooting
+
+- Make sure `$HOME/go/bin` is in your $PATH `go env | grep GOBIN` if not, you need to set it
