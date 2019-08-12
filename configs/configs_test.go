@@ -16,12 +16,12 @@ func TestConfigsDefault(t *testing.T) {
 
 	want, err := homedir.Dir()
 	if err != nil {
-		log.Fatalf("Could not determine users home dir, try again -- err: %v", err)
+		t.Fatalf("Could not determine users home dir, try again -- err: %v", err)
 	}
 	want = want + "/.jokes.db"
 
 	if got != want {
-		log.Fatalf("Could not correctly setup db path, got: %v, wanted: %v", got, want)
+		t.Fatalf("Could not correctly setup db path, got: %v, wanted: %v", got, want)
 	}
 
 }
@@ -38,7 +38,7 @@ func TestConfigsManuallySet(t *testing.T) {
 	got := configs.DBPath
 
 	if got != want {
-		log.Fatalf("Could not correctly setup db path, got: %v, wanted: %v", got, want)
+		t.Fatalf("Could not correctly setup db path, got: %v, wanted: %v", got, want)
 	}
 
 }

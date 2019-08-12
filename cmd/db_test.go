@@ -30,19 +30,19 @@ func TestSetup(t *testing.T) {
 		db, err := sql.Open("sqlite3", configs.DBPath)
 		defer db.Close()
 		if err != nil {
-			log.Fatalf("Could not open jokes database, err: %v", err)
+			tt.Fatalf("Could not open jokes database, err: %v", err)
 		}
 
 		_, err = db.Query("SELECT * FROM jokes")
 		if err != nil {
-			log.Fatalf("Jokes table should exist but does not, err: %v", err)
+			tt.Fatalf("Jokes table should exist but does not, err: %v", err)
 		}
 
 		score := 10
 		_, err = db.Exec("INSERT INTO jokes (setup, punchline, score) VALUES (?, ?, ?)", "Why did the chicken cross the road, again?", "To get to the other side.", score)
 
 		if err != nil {
-			log.Fatal(err)
+			tt.Fatal(err)
 		}
 
 		id := 1
@@ -52,7 +52,7 @@ func TestSetup(t *testing.T) {
 		row.Scan(&punchline)
 		want := "To get to the other side."
 		if punchline != want {
-			log.Fatalf("Could not insert joke properly got: %v, wanted: %v", punchline, want)
+			tt.Fatalf("Could not insert joke properly got: %v, wanted: %v", punchline, want)
 		}
 
 	})
@@ -62,12 +62,12 @@ func TestSetup(t *testing.T) {
 		db, err := sql.Open("sqlite3", configs.DBPath)
 		defer db.Close()
 		if err != nil {
-			log.Fatalf("Could not open jokes database, err: %v", err)
+			tt.Fatalf("Could not open jokes database, err: %v", err)
 		}
 
 		_, err = db.Query("SELECT * FROM dates")
 		if err != nil {
-			log.Fatalf("Dates table should exist but does not, err: %v", err)
+			tt.Fatalf("Dates table should exist but does not, err: %v", err)
 		}
 	})
 

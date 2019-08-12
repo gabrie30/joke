@@ -23,7 +23,7 @@ func TestSaveDate(t *testing.T) {
 	err := d.Save()
 
 	if err != nil {
-		log.Fatalf("Could not save date; err: %v", err)
+		t.Fatalf("Could not save date; err: %v", err)
 	}
 
 	db, err := sql.Open("sqlite3", configs.DBPath)
@@ -34,7 +34,7 @@ func TestSaveDate(t *testing.T) {
 	want := "11-11-1111"
 
 	if datef != want {
-		log.Fatalf("Could not save joke; got: %s, wanted: %s", datef, want)
+		t.Fatalf("Could not save joke; got: %s, wanted: %s", datef, want)
 	}
 }
 
@@ -45,7 +45,7 @@ func TestLastFetchDate(t *testing.T) {
 	neverFetched := date.LastFetchDate()
 
 	if neverFetched != "" {
-		log.Fatalf("if no dates exist last fetch date should return an empty string instead got: %v", neverFetched)
+		t.Fatalf("if no dates exist last fetch date should return an empty string instead got: %v", neverFetched)
 	}
 
 	d := date.NewDate()
@@ -55,13 +55,13 @@ func TestLastFetchDate(t *testing.T) {
 	err := d.Save()
 
 	if err != nil {
-		log.Fatalf("Could not save date; err: %s", err.Error())
+		t.Fatalf("Could not save date; err: %s", err.Error())
 	}
 
 	dz := date.LastFetchDate()
 
 	if dz != "11-11-1111" {
-		log.Fatalf("last fetch date was not successful; got %v, wanted: 11-11-1111", d)
+		t.Fatalf("last fetch date was not successful; got %v, wanted: 11-11-1111", d)
 	}
 }
 
@@ -70,7 +70,7 @@ func TestHasEntry(t *testing.T) {
 	defer os.Remove(configs.DBPath)
 
 	if date.HasEntry() != false {
-		log.Fatal("Should return false if no dates exist in dates table, got: true, wanted: false")
+		t.Fatal("Should return false if no dates exist in dates table, got: true, wanted: false")
 	}
 
 	d := date.NewDate()
@@ -81,11 +81,11 @@ func TestHasEntry(t *testing.T) {
 	err := d.Save()
 
 	if err != nil {
-		log.Fatalf("Could not save date; err: %v", err)
+		t.Fatalf("Could not save date; err: %v", err)
 	}
 
 	if date.HasEntry() != true {
-		log.Fatal("Should return true when dates exist in dates table, got: false, wanted: true")
+		t.Fatal("Should return true when dates exist in dates table, got: false, wanted: true")
 	}
 }
 

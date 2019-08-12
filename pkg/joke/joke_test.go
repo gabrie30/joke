@@ -25,7 +25,7 @@ func TestSaveJoke(t *testing.T) {
 	err := j.Save()
 
 	if err != nil {
-		log.Fatalf("Could not save joke; err: %v", err)
+		t.Fatalf("Could not save joke; err: %v", err)
 	}
 
 	db, err := sql.Open("sqlite3", configs.DBPath)
@@ -36,7 +36,7 @@ func TestSaveJoke(t *testing.T) {
 	want := "To get to the other side."
 
 	if pline != want {
-		log.Fatalf("Could not save joke; got: %s, wanted: %s", pline, want)
+		t.Fatalf("Could not save joke; got: %s, wanted: %s", pline, want)
 	}
 }
 
@@ -61,16 +61,16 @@ func TestCount(t *testing.T) {
 	err = j2.Save()
 
 	if err != nil {
-		log.Fatalf("Could not save joke; err: %v", err)
+		t.Fatalf("Could not save joke; err: %v", err)
 	}
 
 	c, err := joke.Count()
 	if err != nil {
-		log.Fatalf("Could not count jokes err: %v", err)
+		t.Fatalf("Could not count jokes err: %v", err)
 	}
 
 	if c != 2 {
-		log.Fatalf("Count should return 2 when there are two jokes in the database, got: %v, wanted: %v", c, 2)
+		t.Fatalf("Count should return 2 when there are two jokes in the database, got: %v, wanted: %v", c, 2)
 	}
 }
 
