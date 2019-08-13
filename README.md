@@ -1,4 +1,4 @@
-## joke
+# joke
 
 > guaranteed to make your day better, or your money back!
 
