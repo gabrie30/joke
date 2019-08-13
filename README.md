@@ -21,11 +21,11 @@ $ joke --help
 
 ## getting new jokes
 
-- New jokes are fetched only once per day, this is to increase performance which helps if joke is added to .zshrc or similar. However, you can fetch jokes manually by running `joke fetch`
+New jokes are fetched only once per day, this is to increase performance which helps if joke is added to .zshrc or similar. However, you can fetch jokes manually by running `joke fetch`
 
 ## database
 
-- The datastore is an SQLite database located at `$HOME/.joke.db`. It's is created upon running `joke db setup`.
+The datastore is an SQLite database located at `$HOME/.joke.db`. It's is created upon running `joke db setup`.
 
 ### viewing data
 
@@ -46,3 +46,4 @@ sqlite> select * from jokes;
 ## troubleshooting
 
 - Make sure `$HOME/go/bin` is in your $PATH `go env | grep GOBIN` if not, you'll need to set it or put `$HOME/go/bin/joke` somewhere in your $PATH
+    - To add `$HOME/go/bin` to your path `export PATH="$PATH:$HOME/go/bin"`
