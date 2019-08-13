@@ -28,17 +28,19 @@ $ joke --help
 - The datastore is an SQLite database located at `$HOME/.joke.db`. It's is created upon running `joke db setup`.
 
 ### viewing data
+
+Open the database
+```
+$ sqlite3 $HOME/.jokes.db
+sqlite> select * from jokes;
+```
+
 > TIP: add the following to your `$HOME/.sqliterc` for easier to read queries
 ```
 .mode column
 .headers on
 .separator ROW "\n"
 .nullvalue NULL
-```
-Open the database
-```
-$ sqlite3 $HOME/.jokes.db
-sqlite> select * from jokes;
 ```
 
 ## troubleshooting
