@@ -35,9 +35,9 @@ $ joke --help
 .separator ROW "\n"
 .nullvalue NULL
 ```
-then
+Open the database
 ```
-$ sqlite $HOME/.jokes.db
+$ sqlite3 $HOME/.jokes.db
 sqlite> select * from jokes;
 ```
 
