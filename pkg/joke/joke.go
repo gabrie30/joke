@@ -9,7 +9,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-var charsNotAllowed = "#@%^*()"
+var charsNotAllowed = "#@%^*()\n"
 
 // Data holds the data of a joke, not all fields will necessarily be saved to the database
 type Data struct {
