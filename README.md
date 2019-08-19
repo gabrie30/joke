@@ -2,9 +2,7 @@
 
 > guaranteed to make your day better, or your money back!
 
-<p align="center">
-    <img width="459" alt="joke cli" src="https://user-images.githubusercontent.com/1512282/63238494-a9216180-c1fb-11e9-980a-ea7bfc34cab9.png">
-</p>
+<img width="459" alt="joke cli" src="https://user-images.githubusercontent.com/1512282/63238494-a9216180-c1fb-11e9-980a-ea7bfc34cab9.png">
 
 ## use
 
