@@ -123,3 +123,33 @@ func LastJokeID() int {
 
 	return lastID
 }
+
+// LastNJokeIDs returns id of the last n jokes
+func LastNJokeIDs(count int) []int {
+
+	db, err := sql.Open("sqlite3", configs.DBPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+	var lastIDs []int
+	var id int
+	rows, err := db.Query("SELECT id FROM jokes ORDER BY id DESC LIMIT ?", count)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+	for rows.Next() {
+		err := rows.Scan(&id)
+		if err != nil {
+			log.Fatal(err)
+		}
+		lastIDs = append(lastIDs, id)
+	}
+	err = rows.Err()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return lastIDs
+}

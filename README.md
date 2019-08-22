@@ -14,7 +14,9 @@ $ joke db setup
 # tell one joke
 $ joke
 # tell many jokes
-$ joke --count=2
+$ joke --count 2
+# tell the last 5 jokes fetched
+$ joke --last 5
 # get help
 $ joke --help
 ```

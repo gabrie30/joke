@@ -18,15 +18,16 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"strconv"
 
+	"github.com/gabrie30/joke/configs"
 	"github.com/gabrie30/joke/pkg/joke"
 	"github.com/spf13/cobra"
 )
 
 var (
 	cfgFile string
-	count   string
+	count   int
+	last    int
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -37,7 +38,10 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		var jokesToTell int
 		if cmd.Flags().Changed("count") {
-			jokesToTell, _ = strconv.Atoi(count)
+			jokesToTell = count
+		} else if cmd.Flags().Changed("last") {
+			jokesToTell = last
+			configs.LastNJokesToTell = jokesToTell
 		} else {
 			jokesToTell = 1
 		}
@@ -48,7 +52,8 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.Flags().StringVarP(&count, "count", "c", "1", "count of jokes to tell")
+	rootCmd.Flags().IntVarP(&count, "count", "c", 1, "count of jokes to tell")
+	rootCmd.Flags().IntVarP(&last, "last", "l", 0, "count of last n jokes fetched to tell")
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

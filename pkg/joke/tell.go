@@ -4,14 +4,22 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+
+	"github.com/gabrie30/joke/configs"
 )
 
 // Tell tells n jokes
 func Tell(count int) {
-	// find a random number between 1 and lastjoke id
-	randomIDs := randomJokeIDs(count)
+	var jokeIDs []int
 
-	for _, id := range randomIDs {
+	if configs.LastNJokesToTell > 0 {
+		jokeIDs = LastNJokeIDs(count)
+	} else {
+		// find a random number between 1 and lastjoke id
+		jokeIDs = randomJokeIDs(count)
+	}
+
+	for _, id := range jokeIDs {
 		j := GetJokeByID(id)
 		fmt.Printf("================== #%v ==================\n", j.ID)
 		fmt.Println(j.Setup)
