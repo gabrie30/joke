@@ -45,6 +45,9 @@ sqlite> select * from jokes;
 .nullvalue NULL
 ```
 
+## content
+> Jokes are scraped from reddits /r/jokes. Any joke labeled 18+ is excluded from collection by default, however this does not mean all jokes collected are of good taste. Use at your own discretion.
+
 ## troubleshooting
 
 - Make sure `$HOME/go/bin` is in your $PATH `go env | grep GOBIN` if not, you'll need to set it or put `$HOME/go/bin/joke` somewhere in your $PATH
