@@ -25,9 +25,10 @@ import (
 )
 
 var (
-	cfgFile string
-	count   int
-	last    int
+	cfgFile  string
+	count    int
+	last     int
+	favorite string
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -54,6 +55,7 @@ var rootCmd = &cobra.Command{
 func init() {
 	rootCmd.Flags().IntVarP(&count, "count", "c", 1, "count of jokes to tell")
 	rootCmd.Flags().IntVarP(&last, "last", "l", 0, "count of last n jokes fetched to tell")
+	rootCmd.Flags().StringVarP(&favorite, "favorite", "f", "", "add joke to your favorites list")
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

@@ -46,13 +46,19 @@ func TestSetup(t *testing.T) {
 		}
 
 		id := 1
-		row := db.QueryRow("SELECT punchline FROM jokes WHERE id=?", id)
+		row := db.QueryRow("SELECT punchline,favorite FROM jokes WHERE id=?", id)
 
 		var punchline string
-		row.Scan(&punchline)
+		var favorite bool
+
+		row.Scan(&punchline, &favorite)
 		want := "To get to the other side."
 		if punchline != want {
-			tt.Fatalf("Could not insert joke properly got: %v, wanted: %v", punchline, want)
+			tt.Fatalf("Could not insert joke properly, should have punchline set corretly, got: %v, wanted: %v", punchline, want)
+		}
+
+		if favorite != false {
+			tt.Fatalf("Could not insert joke properly, should have favorite column set to false by default, got: %v, wanted: %v", favorite, false)
 		}
 
 	})
