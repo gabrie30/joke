@@ -27,6 +27,8 @@ $ joke --help
 
 New jokes are fetched only once per day, this is to increase performance which helps if joke is added to .zshrc or similar. However, you can fetch jokes manually by running `joke fetch`
 
+**TIP** Seed your database with over 600 jokes, download [here](https://storage.googleapis.com/github-gabrie30-jokedb/joke-db.zip)
+
 ## database
 
 The datastore is an SQLite database located at `$HOME/.joke.db`. It's is created upon running `joke db setup`.
