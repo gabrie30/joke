@@ -27,7 +27,7 @@ $ joke --help
 
 New jokes are fetched only once per day, this is to increase performance which helps if joke is added to .zshrc or similar. However, you can fetch jokes manually by running `joke fetch`
 
-**TIP:** Seed your database with over 600 jokes, download [here](https://storage.googleapis.com/github-gabrie30-jokedb/.jokes.db) and replace with your `$HOME/.joke.db`
+**TIP:** Seed your database with over 5000 jokes, download [here](https://storage.googleapis.com/github-gabrie30-jokedb/.jokes.db) and replace with your `$HOME/.joke.db`
 
 ## database
 
