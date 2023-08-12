@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,6 +28,7 @@ var (
 	cfgFile string
 	count   int
 	last    int
+	noFetch bool
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -46,7 +47,13 @@ var rootCmd = &cobra.Command{
 			jokesToTell = 1
 		}
 
-		joke.FetchIfNeeded()
+		if cmd.Flags().Changed("no-fetch") {
+			noFetch = true
+		}
+
+		if !noFetch {
+			joke.FetchIfNeeded()
+		}
 		joke.Tell(jokesToTell)
 	},
 }
@@ -54,6 +61,7 @@ var rootCmd = &cobra.Command{
 func init() {
 	rootCmd.Flags().IntVarP(&count, "count", "c", 1, "count of jokes to tell")
 	rootCmd.Flags().IntVarP(&last, "last", "l", 0, "count of last n jokes fetched to tell")
+	rootCmd.Flags().Bool("no-fetch", noFetch, "skip fetching of new jokes")
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
